@@ -14,7 +14,8 @@ $(function() {
             var name = $("input#name").val();
             var email = $("input#email").val();
             var phone = $("input#phone").val();
-            var message = $("textarea#message").val();
+			var websiteName = $("input#websiteName").val();
+			var websiteURL = $("input#websiteURL").val();
             var firstName = name; // For Success/Failure Message
             // Check for white space in name for Success/Fail message
             if (firstName.indexOf(' ') >= 0) {
@@ -27,7 +28,8 @@ $(function() {
                     name: name,
                     phone: phone,
                     email: email,
-                    message: message
+					websiteName: websiteName,
+                    websiteURL: websiteURL,
                 },
                 cache: false,
                 success: function() {
@@ -37,7 +39,7 @@ $(function() {
                     $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
                         .append("</button>");
                     $('#success > .alert-success')
-                        .append("<strong>Your message has been sent. </strong>");
+                        .append("<strong>We have recived your signup request, your profile will be created and we will send your login details to your email in less than 24 hours . </strong>");
                     $('#success > .alert-success')
                         .append('</div>');
 
@@ -49,7 +51,7 @@ $(function() {
                     $('#success').html("<div class='alert alert-danger'>");
                     $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
                         .append("</button>");
-                    $('#success > .alert-danger').append("<strong>Sorry " + firstName + ", it seems that my mail server is not responding. Please try again later!");
+                    $('#success > .alert-danger').append("<strong>Sorry " + firstName + ", it seems that our mail server is not responding. Please try again later!");
                     $('#success > .alert-danger').append('</div>');
                     //clear all fields
                     $('#contactForm').trigger("reset");
